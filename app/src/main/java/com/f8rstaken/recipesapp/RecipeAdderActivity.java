@@ -110,7 +110,7 @@ public class RecipeAdderActivity extends AppCompatActivity {
 
                     for (Ingredient ingredient : ingredients){
                         cRecipeReference.child("ingredients").child(String.valueOf(i)).child("name").setValue(ingredient.getName());
-                        cRecipeReference.child("ingredients").child(String.valueOf(i)).child("amount").setValue(ingredient.getGrams());
+                        cRecipeReference.child("ingredients").child(String.valueOf(i)).child("amount").setValue(ingredient.getAmount());
                         i++;
                     }
 

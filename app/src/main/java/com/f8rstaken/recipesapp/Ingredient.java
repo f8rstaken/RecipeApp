@@ -5,17 +5,17 @@ import java.io.Serializable;
 public class Ingredient implements Serializable {
 
     private String name;
-    private int grams;
+    private int amount;
     private int id;
 
-    public Ingredient(String name, int grams) {
+    public Ingredient(String name, int amount) {
         this.name = name;
-        this.grams = grams;
+        this.amount = amount;
     }
 
-    public Ingredient(String name, int grams, int id) {
+    public Ingredient(String name, int amount, int id) {
         this.name = name;
-        this.grams = grams;
+        this.amount = amount;
         this.id = id;
     }
 
@@ -27,7 +27,7 @@ public class Ingredient implements Serializable {
     public String toString() {
         return "Ingredient{" +
                 "name='" + name + '\'' +
-                ", grams=" + grams +
+                ", amount=" + amount +
                 '}';
     }
 
@@ -47,11 +47,11 @@ public class Ingredient implements Serializable {
         this.name = name;
     }
 
-    public int getGrams() {
-        return grams;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setGrams(int grams) {
-        this.grams = grams;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

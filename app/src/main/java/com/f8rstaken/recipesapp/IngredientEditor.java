@@ -29,7 +29,7 @@ public class IngredientEditor extends AppCompatActivity {
             tvInpWeight = findViewById(R.id.inpAddIngWeightEditor);
 
             tvInpName.setText(chosenIngredient.getName());
-            tvInpWeight.setText(String.valueOf(chosenIngredient.getGrams()));
+            tvInpWeight.setText(String.valueOf(chosenIngredient.getAmount()));
 
             index = chosenIngredient.getId();
         } else {
@@ -43,7 +43,7 @@ public class IngredientEditor extends AppCompatActivity {
 
         RecipeAdderActivity.ingredients.remove(index);
         chosenIngredient.setName(tvInpName.getText().toString());
-        chosenIngredient.setGrams(Integer.valueOf(tvInpWeight.getText().toString()));
+        chosenIngredient.setAmount(Integer.valueOf(tvInpWeight.getText().toString()));
         Log.e("name", tvInpName.getText().toString());
         RecipeAdderActivity.ingredients.add(index, chosenIngredient);
         RecipeAdderActivity.adapter.notifyDataSetChanged();

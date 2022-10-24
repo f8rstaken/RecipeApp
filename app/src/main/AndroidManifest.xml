@@ -40,6 +40,9 @@
         <activity
             android:name="com.f8rstaken.recipesapp.IngredientEditor"
             android:label="IngredientEditorActivity" />
+        <activity
+            android:name="com.f8rstaken.recipesapp.RecipeViewerActivity"
+            android:label="RecipeViewerActivity" />
     </application>
 
 </manifest>

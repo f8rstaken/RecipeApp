@@ -63,7 +63,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     public void onBindViewHolder(@NonNull RecyclerAdapter.ViewHolder holder, int position) {
         holder.bind(ingredients.get(position), listener);
         String ingredientName = ingredients.get(position).getName();
-        String ingredientWeight = String.valueOf(ingredients.get(position).getGrams());
+        String ingredientWeight = String.valueOf(ingredients.get(position).getAmount());
         holder.ingredientName.setText(ingredientName);
         holder.ingredientData.setText(ingredientWeight);
 

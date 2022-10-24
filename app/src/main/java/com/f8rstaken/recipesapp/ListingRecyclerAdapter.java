@@ -60,7 +60,7 @@ public class ListingRecyclerAdapter extends RecyclerView.Adapter<ListingRecycler
     public void onBindViewHolder(@NonNull ListingRecyclerAdapter.ViewHolder holder, int position) {
         holder.bind(items.get(position), listener);
         String itemName = items.get(position).getName();
-        String itemDesc = String.valueOf(items.get(position).getDescription());
+        String itemDesc = String.valueOf(items.get(position).getGuide());
 
         if(itemDesc.length() > 32){
             itemDesc = itemDesc.substring(0, 32) + "...";
