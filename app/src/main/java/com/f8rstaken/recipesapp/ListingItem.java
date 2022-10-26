@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class ListingItem implements Serializable {
 
+    private String submitter;
     private String name;
     private String guide;
     private int ingredientAmount;
@@ -13,6 +14,14 @@ public class ListingItem implements Serializable {
 
     public ListingItem(){
 
+    }
+
+    public String getSubmitter() {
+        return submitter;
+    }
+
+    public void setSubmitter(String submitter) {
+        this.submitter = submitter;
     }
 
     public ArrayList<Ingredient> getIngredients() {
@@ -43,14 +52,6 @@ public class ListingItem implements Serializable {
 
     public void setIngredientAmount(int ingredientAmount) {
         this.ingredientAmount = ingredientAmount;
-    }
-
-    @Override
-    public String toString() {
-        return "ListingItem{" +
-                "name='" + name + '\'' +
-                ", amount=" + guide +
-                '}';
     }
 
     public String getName() {

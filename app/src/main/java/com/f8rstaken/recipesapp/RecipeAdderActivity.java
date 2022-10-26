@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -80,7 +81,7 @@ public class RecipeAdderActivity extends AppCompatActivity {
                     String recipeName = etRecipeName.getText().toString();
                     String recipeGuide = etRecipeGuide.getText().toString();
 
-                    //String poster = FirebaseAuth.getInstance();
+                    String userName = FirebaseAuth.getInstance().getCurrentUser().getEmail().split("@")[0];
 
                     int ingredientAmount = ingredients.size();
 
@@ -101,6 +102,7 @@ public class RecipeAdderActivity extends AppCompatActivity {
 
                     DatabaseReference cRecipeReference = mDatabase.child("recipes").child(String.valueOf(recipeNumber + 1));
 
+                    cRecipeReference.child("submitter").setValue(userName);
                     cRecipeReference.child("name").setValue(recipeName);
                     cRecipeReference.child("guide").setValue(recipeGuide);
                     cRecipeReference.child("ingredientAmount").setValue(ingredientAmount);
@@ -117,7 +119,7 @@ public class RecipeAdderActivity extends AppCompatActivity {
                 }
             }
         });
-
+    finish();
     }
 
     private void setAdapter() {

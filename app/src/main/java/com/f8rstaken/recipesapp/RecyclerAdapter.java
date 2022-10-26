@@ -32,17 +32,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             ingredientData = itemView.findViewById(R.id.tvIngredientAmount);
         }
 
+
         public void bind(final Ingredient item, final OnItemClickListener listener) {
             ingredientName.setText(item.getName());
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    v.setTag("TEST!");
                     listener.onItemClick(item);
-
-
                 }
             });
+
         }
     }
 
@@ -50,6 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         this.ingredients = ingredients;
         this.listener = listener;
     }
+
 
     @NonNull
     @Override

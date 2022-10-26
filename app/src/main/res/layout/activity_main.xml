@@ -32,42 +32,49 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
+        android:id="@+id/btnOpenBrowse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:backgroundTint="#818181"
+        android:onClick="openBrowsing"
+        android:text="browse"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appname" />
+
+    <Button
         android:id="@+id/btnUserMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="320dp"
         android:backgroundTint="#818181"
-        android:onClick="openUserMenu"
         android:enabled="true"
         android:fadeScrollbars="false"
+        android:onClick="openUserMenu"
         android:text="User menu"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRecipeAdder"
+        app:layout_constraintVertical_bias="0.148" />
 
-    <ImageButton
+    <Button
         android:id="@+id/btnRecipeAdder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:visibility="invisible"
+        android:backgroundTint="#818181"
         android:onClick="openRecipeAdder"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/plusicon" />
-
-    <Button
-        android:id="@+id/btnOpenBrowse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="browse"
-        android:onClick="openBrowsing"
+        android:text="upload"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appname" />
+        app:layout_constraintTop_toBottomOf="@+id/btnOpenBrowse" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

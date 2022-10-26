@@ -1,10 +1,8 @@
 package com.f8rstaken.recipesapp;
 
-import static android.content.ContentValues.TAG;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,15 +27,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void openRegister(View view){
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(this, RegisterActivity.class));
         finish();
     }
 
     public void onLogin(View view){
 
-        EditText emailInput = (EditText) findViewById(R.id.LoginInpEmail);
-        EditText passwordInput = (EditText) findViewById(R.id.LoginInpPass);
+        EditText emailInput = findViewById(R.id.LoginInpEmail);
+        EditText passwordInput = findViewById(R.id.LoginInpPass);
 
         String email = emailInput.getText().toString();
         String password = passwordInput.getText().toString();
@@ -47,18 +44,13 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(LoginActivity.this, "Authentication success.",
+                            Toast.makeText(LoginActivity.this, "Login successful.",
                                     Toast.LENGTH_LONG).show();
-                            Log.d(TAG, "signInWithEmail:success");
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, "Login failed.", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

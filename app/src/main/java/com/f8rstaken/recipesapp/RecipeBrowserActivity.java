@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,13 +41,12 @@ public class RecipeBrowserActivity extends AppCompatActivity {
 
     private int currentPage = 1;
     private int maxPage = -1;
-    private int recipesPerPage = 2;
+    private int recipesPerPage = 5;
     private int totalRecipes = 0;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipebrowser);
         mDatabase = FirebaseDatabase.getInstance("https://recipeapp-c9c3a-default-rtdb.europe-west1.firebasedatabase.app").getReference();
@@ -63,11 +65,10 @@ public class RecipeBrowserActivity extends AppCompatActivity {
         currentlyShowing.clear();
         int offset = (currentPage-1)*recipesPerPage;
         for(int i = 1; i <= recipesPerPage; i++){
-            currentlyShowing.add(hlisting.get(offset + i));
+            if(hlisting.get((offset + i)) != null) {
+                currentlyShowing.add(hlisting.get(offset + i));
+            }
         }
-        Log.e("size", "" + currentlyShowing.size());
-        //adapter.notifyDataSetChanged();
-
     }
 
     public void getData(){
@@ -93,7 +94,6 @@ public class RecipeBrowserActivity extends AppCompatActivity {
                                 loadData();
                                 setAdapter();
                                 maxPage = (int) Math.ceil((double) totalRecipes/recipesPerPage);
-                                Log.e("Max page: ", ""+maxPage);
                                 tvLoadingText.setVisibility(View.INVISIBLE);
                             }
                         }
@@ -127,6 +127,7 @@ public class RecipeBrowserActivity extends AppCompatActivity {
         if(currentPage >= maxPage){
             return;
         }
+
         currentPage++;
         tvPageNum.setText(String.valueOf(currentPage));
         loadData();
@@ -138,7 +139,6 @@ public class RecipeBrowserActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(ListingItem item) {
-                Log.e("clickName", item.getName());
                 Intent intent = new Intent(RecipeBrowserActivity.this, RecipeViewerActivity.class);
                 intent.putExtra("item", item);
                 startActivity(intent);

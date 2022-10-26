@@ -21,12 +21,12 @@ public class ListingRecyclerAdapter extends RecyclerView.Adapter<ListingRecycler
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView listingName;
-        private TextView listingDesc;
+        private TextView listingSubmitter;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             listingName = itemView.findViewById(R.id.tvListingRecipeName);
-            listingDesc = itemView.findViewById(R.id.tvListingRecipeDesc);
+            listingSubmitter = itemView.findViewById(R.id.tvListingSubmitter);
         }
 
         public void bind(final ListingItem item, final OnItemClickListener listener) {
@@ -34,9 +34,7 @@ public class ListingRecyclerAdapter extends RecyclerView.Adapter<ListingRecycler
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    v.setTag("TEST!");
                     listener.onItemClick(item);
-
 
                 }
             });
@@ -60,14 +58,10 @@ public class ListingRecyclerAdapter extends RecyclerView.Adapter<ListingRecycler
     public void onBindViewHolder(@NonNull ListingRecyclerAdapter.ViewHolder holder, int position) {
         holder.bind(items.get(position), listener);
         String itemName = items.get(position).getName();
-        String itemDesc = String.valueOf(items.get(position).getGuide());
-
-        if(itemDesc.length() > 32){
-            itemDesc = itemDesc.substring(0, 32) + "...";
-        }
+        String itemSubmitter = items.get(position).getSubmitter();
 
         holder.listingName.setText(itemName);
-        holder.listingDesc.setText(itemDesc);
+        holder.listingSubmitter.setText(itemSubmitter);
 
     }
 

@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class IngredientAdder extends AppCompatActivity {
 
-    Bundle extras = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +23,6 @@ public class IngredientAdder extends AppCompatActivity {
         RecipeAdderActivity.ingredients.add(new Ingredient(name, weight, RecipeAdderActivity.ingredients.size()));
         RecipeAdderActivity.adapter.notifyDataSetChanged();
         finish();
-
-    }
-
-    public void onRemoveIngredient(View view){
-
-
 
     }
 

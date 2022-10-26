@@ -13,32 +13,11 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnSubmitRecipe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#818181"
-        android:onClick="writeRecipe"
-        android:text="submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="307dp"
-        android:layout_height="310dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtIngredients" />
-
     <EditText
         android:id="@+id/inputRecipeName"
         android:layout_width="249dp"
         android:layout_height="48dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Recipe name"
@@ -46,27 +25,51 @@
         android:textColor="@color/black"
         android:textColorHint="#606060"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtIngredients"
+    <Button
+        android:id="@+id/btnIngredientAdder"
+        android:layout_width="39dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="24dp"
+        android:backgroundTint="#818181"
+        android:onClick="openIngredientAdder"
+        android:text="+"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@+id/txtIngredients"
+        tools:layout_editor_absoluteY="245dp" />
+
+    <Button
+        android:id="@+id/btnSubmitRecipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Ingredients"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="#818181"
         android:textColor="@color/black"
-        android:textSize="24dp"
+        android:onClick="writeRecipe"
+        android:text="submit"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputRecipe" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="305dp"
+        android:layout_height="280dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtIngredients" />
 
     <EditText
         android:id="@+id/inputRecipe"
         android:layout_width="249dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Recipe"
@@ -76,20 +79,22 @@
         android:textColor="@color/black"
         android:textColorHint="#606060"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputRecipeName" />
 
-    <ImageButton
-        android:id="@+id/btnIngredientAdder"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
-        android:onClick="openIngredientAdder"
-        app:layout_constraintStart_toEndOf="@+id/txtIngredients"
-        app:layout_constraintTop_toBottomOf="@+id/inputRecipe"
-        app:srcCompat="@drawable/plusicon" />
+    <TextView
+        android:id="@+id/txtIngredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Ingredients"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputRecipe" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

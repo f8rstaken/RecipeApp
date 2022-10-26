@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class IngredientEditor extends AppCompatActivity {
 
-    private Bundle extras = null;
     private Ingredient chosenIngredient = null;
     private TextView tvInpName;
     private TextView tvInpWeight;

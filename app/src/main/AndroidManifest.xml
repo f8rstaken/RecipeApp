@@ -43,6 +43,9 @@
         <activity
             android:name="com.f8rstaken.recipesapp.RecipeViewerActivity"
             android:label="RecipeViewerActivity" />
+        <activity
+            android:name="com.f8rstaken.recipesapp.SettingsActivity"
+            android:label="SettingsActivity" />
     </application>
 
 </manifest>
